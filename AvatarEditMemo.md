@@ -43,8 +43,28 @@
 * 性別を __Femail__ に変更  
   <img src="images/Female.png" width="30%">  
 * アバターサイズ抑止のため、表示offのメッシュのTagを __EditorOnly__ に変更  
-* __Eye Move__ の設定  
+* __Eye Look__ の設定  
   * アバターの実装に依存する  
     * ボーンの構造  
     * 目の向きや確度  
       * この見た目がアバターの個性となる
+  * 設定する内容  
+    <img src="images/EyeLook.png" width="30%">  
+    * Hierarchy 上のアバターを選択して、VRC Avatar Descriptorを表示させ、「Eye Look」を Enable にする。  
+    * Eyes の設定
+      * Transformsで目のボーンを選択する（Beryl-Terrsaちゃんの場合は最初から選択される）
+      * Rotation Statesで、
+        * 直視=(0,0,)
+        * 上に目をそらす = (-x,0,0)
+        * 下に目をそらす = ( x,0,0)
+        * 左に目をそらす = (0,-y,0)
+        * 右に目をそらす = (0, y,0)  
+        のように、それぞれ設定する。（+xと-xとすると、上下で移動量が同じになります。+yと-yとすると、左右で移動量が同じになります。xとyの値はアバターによって決める）
+    * Eyelids の設定  
+      Eyelidsとはまぶたのこと  
+      * Eyeid Types は Blendshapes を選択する。
+      * Eyelids Mesh は Body(Skinned Mesh Renderer) を選択する
+      * Blendshape Status の設定
+        * Bllink は、目を閉じたブレンドシェイプを選択する
+        * Looking Up は、顔を上げたときに発動させるブレンドシェイプを選択する。-none-を選択すると顔を上げても発動しない。
+        * Looking Down は、顔を下げたときに発動させるブレンドシェイプを選択する。-none-を選択すると顔を上げても発動しない。
